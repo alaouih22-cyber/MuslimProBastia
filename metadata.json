@@ -1,6 +1,0 @@
-{
-  "name": "Muslim Pro Bastia",
-  "description": "Applicazione per orari di preghiera, Corano e Hadith per la comunità di Bastia, ottimizzata per smartphone, tablet e PC.",
-  "requestFramePermissions": ["geolocation", "microphone"],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
