@@ -1,0 +1,27 @@
+{
+  "name": "Muslim Pro Bastia",
+  "short_name": "Muslim Pro",
+  "description": "Orari di preghiera, Corano e Hadith per la comunità di Bastia",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#002b22",
+  "theme_color": "#002b22",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
