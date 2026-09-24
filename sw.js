@@ -1,14 +1,12 @@
 // sw.js - Service Worker per Cache Offline e Auto-Aggiornamento PWA / Capacitor
-const CACHE_NAME = 'muslim-pro-bastia-v2.4';
+const CACHE_NAME = 'muslim-pro-bastia-v2.1';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './manifest.json',
   './icon.png',
   './icon-192.png',
-  './icon-512.png',
-  './adhan.mp3',
-  './bastia_schedule.json'
+  './icon-512.png'
 ];
 
 self.addEventListener('install', (event) => {
@@ -35,32 +33,9 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Gestione click notifica per aprire l'app e far partire l'Adhan
-self.addEventListener('notificationclick', (event) => {
-  event.notification.close();
-  const targetUrl = (event.notification.data && event.notification.data.url) ? event.notification.data.url : './index.html?playAthan=1';
-
-  event.waitUntil(
-    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((clientList) => {
-      for (const client of clientList) {
-        if ('focus' in client) {
-          client.focus();
-          client.postMessage({ type: 'PLAY_ATHAN' });
-          return;
-        }
-      }
-      if (self.clients.openWindow) {
-        return self.clients.openWindow(targetUrl);
-      }
-    })
-  );
-});
-
 // Strategia Network-First: scarica sempre da rete se connesso, usa la cache se offline
 self.addEventListener('fetch', (event) => {
   if (!event.request.url.startsWith('http')) return;
-  // Non intercettare mai chiamate API o metodi non-GET (evita interruzioni su richieste POST AI)
-  if (event.request.method !== 'GET' || event.request.url.includes('/api/')) return;
 
   event.respondWith(
     fetch(event.request)
@@ -83,4 +58,3 @@ self.addEventListener('fetch', (event) => {
       })
   );
 });
-
