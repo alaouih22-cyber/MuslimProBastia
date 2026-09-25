@@ -1,0 +1,18 @@
+{
+  "name": "Muslim Pro Bastia",
+  "short_name": "Muslim Pro",
+  "description": "App completa per orari di preghiera, Corano e Hadith per la comunità di Bastia Umbra.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#002b22",
+  "theme_color": "#002b22",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
